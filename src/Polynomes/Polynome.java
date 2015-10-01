@@ -98,19 +98,25 @@ class Polynome {
         return derivee; // On renvoit le polynôme dérivée.
     }
 
+    /**
+     * Permet de trouver le zéro du polynome par la méthode de Newton
+     * @param start
+     * @param precision
+     * @return
+     */
     public double polyNewton(double start, int precision) {
-        Polynome derivPoly = derivePoly();
-        double tenPrecision = Math.pow(10, -1 * precision);
+        Polynome derivPoly = derivePoly(); // On calcule la dérivée du polynôme
+        double tenPrecision = Math.pow(10, -1 * precision); // On calcule la précision à 10^-precision
 
 
-        double solution = start;
-        double oldVal;
+        double solution = start; // On part du point de départ
+        double oldVal; // Valeur pour stocker l'ancienne valeur.
         do {
-            oldVal = solution;
-            solution = oldVal - valPoly(oldVal) / derivPoly.valPoly(oldVal);
-        } while (Math.abs(solution - oldVal) > tenPrecision);
+            oldVal = solution; // On définit la solution actuelle en tant que qu'ancienne solution
+            solution = oldVal - valPoly(oldVal) / derivPoly.valPoly(oldVal); // On définit la nouvelle solution à l'aide de la formule de newton
+        } while (Math.abs(solution - oldVal) > tenPrecision); // On continue le processus tant qu'on a pas une précision égale à celle définie prédemment.
 
-        return solution;
+        return solution; // On renvoit x pour lequel f(x)=0
     }
 
     public double integrerRectangle(double a, double b, int N) {

@@ -1,6 +1,7 @@
 package Courbes.Courbes;
 
 import Courbes.APoint;
+import Courbes.Util.Trigonometry;
 
 /**
  * Created by Kévin on 26/09/2015.
@@ -10,12 +11,19 @@ public class Polygone extends Courbe {
     private APoint[] points;
 
     /**
-     * ATTENTION, IL MANQUE LE TRI DES POINTS EN ORDRE TRIGONOMETRIQUE
+     * Construit un polynôme en triant les points par ordre trigonométrique.
      * @param argPoints
      */
     public Polygone(APoint[] argPoints) {
         points = new APoint[argPoints.length];
         System.arraycopy(argPoints, 0, points, 0, argPoints.length);
+        Trigonometry.sort(argPoints);
+        System.out.print('{');
+        for(int i=0; i<argPoints.length; i++) {
+            System.out.print(argPoints[i]);
+            System.out.print(',');
+        }
+        System.out.println('}');
     }
 
     protected Polygone() {

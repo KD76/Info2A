@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        APoint[] test = new APoint[]{new APoint(0, 0), new APoint(4, 0), new APoint(4, 4), new APoint(0, 4)};
+        APoint[] test = new APoint[]{new APoint(4, 0), new APoint(4, 4), new APoint(0, 0), new APoint(0, 4)};
         APoint[] test2 = new APoint[]{new APoint(0, 5), new APoint(4, 10), new APoint(4, 2), new APoint(1, 6), new APoint(0,2)};
         Polygone polyg = new Polygone(test);
         System.out.println(polyg.aire());
@@ -81,7 +81,7 @@ public class Main {
         System.out.println("---------------CERCLE APPROXIME---------------");
         System.out.println("Longueur:" +cercle2.longueur());
         System.out.println("Aire:"+cercle2.aire());
-        System.out.println("Barycentre:"+cercle2.barycentre());
+        System.out.println("Barycentre:" + cercle2.barycentre());
     }
 
 }

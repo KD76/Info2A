@@ -30,10 +30,6 @@ public class Polygone extends Courbe {
 
     }
 
-    private void trigoSort() {
-
-    }
-
     @Override
     public double longueur() {
         double longueur = 0;

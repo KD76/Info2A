@@ -7,13 +7,17 @@ import Courbes.APoint;
  */
 public class Trigonometry {
 
-    public static void sort(APoint[] points) {
-        for (int i=0; i<points.length; i++) {
-            int minAnglePos = getMinAnglePoint(points, i);
+    public static APoint[] sort(APoint[] points) {
+        APoint[] newTab = new APoint[points.length];
+        System.arraycopy(points, 0, newTab, 0, points.length);
+        for (int i=0; i<newTab.length; i++) {
+            int minAnglePos = getMinAnglePoint(newTab, i);
             if (minAnglePos != i) {
-                switchLines(points, minAnglePos, i);
+                switchLines(newTab, minAnglePos, i);
             }
         }
+
+        return points;
     }
 
     private static void switchLines(APoint[] points, int oldPos, int newPos) {
@@ -30,7 +34,7 @@ public class Trigonometry {
         int minPos = 0;
         for (int i=start; i<points.length; i++) {
             double angle = getAngle(points[i], true);
-            if (minAngle >= angle) {
+            if (minAngle > angle) {
                 minAngle = angle;
                 minPos = i;
             }

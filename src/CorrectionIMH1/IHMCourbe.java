@@ -1,4 +1,4 @@
-package IHM;
+package CorrectionIMH1;
 
 /**
  * TP d'initiation au développement d'IHM sous java
@@ -49,8 +49,9 @@ public class IHMCourbe{
 		courbes[5] = poly1;
 		courbes[6] = poly2;
 
-		// Création des fenêtres pour l'IHM
+		// Création de la fenêtre pour l'IHM
 		FenetreSelectionCourbe maFrameSelectionCourbe = new FenetreSelectionCourbe(courbes);
 		
 	}
 }
+

@@ -1,4 +1,6 @@
-package IHM;
+package IHM_Perso;
+
+import IHM_Perso.Util.Trigonometry;
 
 import java.awt.*;
 
@@ -12,6 +14,8 @@ import java.awt.*;
 public class Polygone extends Courbe{
 	
 	private APoint[] points;
+
+	private APoint[] trigoPoints;
 
 	/**
 	 * Le construteur
@@ -69,7 +73,25 @@ public class Polygone extends Courbe{
 		return 0.5*a;
 	}
 
-	public void paintCourbe(Graphics g, Color color) {
+	@Override
+	public boolean hasPoint(APoint point) {
+		if (trigoPoints == null) {
+			trigoPoints = Trigonometry.sort(points);
+		}
+
+		double angle = 0;
+
+
+		// NE MARCHE PAS
+		for (APoint currentPoint: trigoPoints) {
+			angle += Trigonometry.getAngle(new APoint(currentPoint.x-point.x, currentPoint.y-point.y), false);
+			System.out.println(angle);
+		}
+		System.out.println("-----------------------------");
+		return angle == 0;
+	}
+
+	public void paintCourbe(Graphics g) {
 
 		int[] xTab = new int[points.length];
 		int[] yTab = new int[points.length];
@@ -81,7 +103,7 @@ public class Polygone extends Courbe{
 
 		Color oldColor = g.getColor();
 
-		g.setColor(color);
+		g.setColor(paintColor);
 		g.fillPolygon(xTab, yTab, xTab.length);
 		g.setColor(oldColor);
 	}

@@ -1,4 +1,4 @@
-package IHM;
+package IHM_Perso;
 
 import java.awt.*;
 
@@ -45,11 +45,16 @@ public class Cercle extends Courbe{
 	}
 
 	@Override
-	public void paintCourbe(Graphics g, Color color) {
+	public void paintCourbe(Graphics g) {
 		Color oldColor = g.getColor();
-		g.setColor(color);
-		g.fillOval((int)(centre.x-rayon), (int)(centre.y+rayon), 2*rayon, 2*rayon);
+		g.setColor(paintColor);
+		g.fillOval((int)(centre.x-rayon), (int)(centre.y-rayon), 2*rayon, 2*rayon);
 		g.setColor(oldColor);
+	}
+
+	@Override
+	public boolean hasPoint(APoint point) {
+		return point.distance(centre) <= rayon;
 	}
 
 	/**

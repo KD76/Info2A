@@ -1,4 +1,4 @@
-package IHM;
+package IHM_Perso;
 
 public class APoint {
     

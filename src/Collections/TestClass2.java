@@ -4,8 +4,8 @@ public class TestClass2 {
     
     public static void main (String [] args) {
         
-        ListBis L1 = new ListBis();
-		ListBis L2 = new ListBis();
+        List L1 = new List();
+		List L2 = new List();
 
         L1.insert (313);
         L1.insert (42);

@@ -4,7 +4,7 @@ public class TestClass3 {
     
     public static void main (String [] args) {
 
-        ListBis L1 = new ListBis();
+        List L1 = new List();
         Tree T1 = new Tree();
 
         int [] values = {100, 50, 150, 23, 45, 1, 73, 1000, 500, 2, 32, 34, 131, 3, 
@@ -21,7 +21,7 @@ public class TestClass3 {
             System.out.println ("Searching for "+values[i]);
             count=L1.find(values[i]);
             if (count>=0) {
-                System.out.println ("List: found after "+count+" iterations.");
+                System.out.println ("ListPlusComplique: found after "+count+" iterations.");
                 countlist+=count;
             }
             count=T1.find(values[i]);
